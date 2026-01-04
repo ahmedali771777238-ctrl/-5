@@ -1,0 +1,1294 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>أفق المدينة | للاستشارات الهندسية والأمن والسلامة</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* متغيرات الألوان والتصميم */
+        :root {
+            --primary-color: #0a2e5c; /* أزرق مؤسسي عميق */
+            --secondary-color: #c19a53; /* ذهبي ترابي */
+            --accent-color: #d32f2f; /* أحمر للسلامة */
+            --light-color: #f5f7fa;
+            --dark-color: #1a1a1a;
+            --text-color: #333;
+            --gray-color: #6c757d;
+            --shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            --transition: all 0.3s ease;
+            --border-radius: 8px;
+        }
+        
+        /* إعدادات أساسية */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: 'Cairo', sans-serif;
+            line-height: 1.7;
+            color: var(--text-color);
+            background-color: #fff;
+            overflow-x: hidden;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-weight: 700;
+            line-height: 1.3;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+        
+        h1 {
+            font-size: 2.8rem;
+        }
+        
+        h2 {
+            font-size: 2.2rem;
+        }
+        
+        h3 {
+            font-size: 1.6rem;
+        }
+        
+        p {
+            margin-bottom: 1.2rem;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .section-padding {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 3.5rem;
+            position: relative;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(to left, var(--primary-color), var(--secondary-color));
+            bottom: -15px;
+            right: 50%;
+            transform: translateX(50%);
+            border-radius: 2px;
+        }
+        
+        .title-accent {
+            color: var(--secondary-color);
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: white;
+            padding: 14px 32px;
+            border-radius: var(--border-radius);
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+            border: 2px solid var(--primary-color);
+            cursor: pointer;
+            text-align: center;
+            font-size: 1rem;
+        }
+        
+        .btn:hover {
+            background-color: transparent;
+            color: var(--primary-color);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .btn-accent {
+            background-color: var(--secondary-color);
+            border-color: var(--secondary-color);
+        }
+        
+        .btn-accent:hover {
+            color: var(--secondary-color);
+        }
+        
+        .btn-outline {
+            background-color: transparent;
+            color: var(--primary-color);
+        }
+        
+        .btn-outline:hover {
+            background-color: var(--primary-color);
+            color: white;
+        }
+        
+        /* شريط التنقل */
+        .navbar {
+            position: fixed;
+            top: 0;
+            right: 0;
+            left: 0;
+            background-color: rgba(255, 255, 255, 0.98);
+            padding: 18px 0;
+            z-index: 1000;
+            transition: var(--transition);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+        
+        .navbar.scrolled {
+            padding: 12px 0;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        }
+        
+        .logo-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.8rem;
+            margin-left: 10px;
+            font-weight: 700;
+        }
+        
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .logo-main {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--primary-color);
+            line-height: 1.2;
+        }
+        
+        .logo-sub {
+            font-size: 0.85rem;
+            color: var(--gray-color);
+            font-weight: 500;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            position: relative;
+            margin-right: 25px;
+        }
+        
+        .nav-links a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+            padding: 8px 0;
+            position: relative;
+        }
+        
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--secondary-color);
+            transition: var(--transition);
+        }
+        
+        .nav-links a:hover::after,
+        .nav-links a.active::after {
+            width: 100%;
+        }
+        
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--secondary-color);
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--primary-color);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+        /* القسم الرئيسي */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(10, 46, 92, 0.85), rgba(10, 46, 92, 0.9)), url('https://images.unsplash.com/photo-1541888946425-d81bb19240f5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 100%;
+            height: 150px;
+            background: linear-gradient(to top, rgba(255, 255, 255, 1), transparent);
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            z-index: 2;
+        }
+        
+        .hero h1 {
+            font-size: 3.2rem;
+            margin-bottom: 1.5rem;
+            color: white;
+            animation: fadeInUp 1s ease;
+            line-height: 1.2;
+        }
+        
+        .hero h1 span {
+            color: var(--secondary-color);
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2.5rem;
+            animation: fadeInUp 1s ease 0.3s both;
+            color: rgba(255, 255, 255, 0.9);
+        }
+        
+        .hero-btns {
+            animation: fadeInUp 1s ease 0.6s both;
+        }
+        
+        .hero-btns .btn {
+            margin-left: 15px;
+        }
+        
+        /* قسم الخدمات */
+        .services {
+            background-color: var(--light-color);
+            position: relative;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+        }
+        
+        .service-card {
+            background-color: white;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            height: 100%;
+            border-top: 4px solid var(--primary-color);
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+            border-top-color: var(--secondary-color);
+        }
+        
+        .service-icon {
+            height: 180px;
+            background-color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 3.5rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .service-icon::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, rgba(255, 255, 255, 0.1), transparent);
+        }
+        
+        .service-content {
+            padding: 25px;
+        }
+        
+        .service-content h3 {
+            color: var(--primary-color);
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .service-content h3 i {
+            margin-left: 10px;
+            color: var(--secondary-color);
+        }
+        
+        .service-content p {
+            color: var(--gray-color);
+            margin-bottom: 20px;
+        }
+        
+        .service-features {
+            list-style: none;
+            margin-bottom: 20px;
+        }
+        
+        .service-features li {
+            margin-bottom: 8px;
+            position: relative;
+            padding-right: 20px;
+        }
+        
+        .service-features li::before {
+            content: '✓';
+            position: absolute;
+            right: 0;
+            color: var(--secondary-color);
+            font-weight: bold;
+        }
+        
+        /* قسم لماذا نحن */
+        .why-us {
+            position: relative;
+        }
+        
+        .why-us-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            align-items: center;
+        }
+        
+        .why-us-content {
+            padding-left: 30px;
+        }
+        
+        .why-us-features {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin-top: 30px;
+        }
+        
+        .feature-item {
+            background-color: var(--light-color);
+            padding: 20px;
+            border-radius: var(--border-radius);
+            border-right: 4px solid var(--secondary-color);
+        }
+        
+        .feature-item h4 {
+            color: var(--primary-color);
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .feature-item h4 i {
+            margin-left: 10px;
+            color: var(--secondary-color);
+        }
+        
+        .why-us-image {
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+        
+        .why-us-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: var(--transition);
+        }
+        
+        .why-us-image:hover img {
+            transform: scale(1.05);
+        }
+        
+        /* قسم الاتصال */
+        .contact {
+            background-color: var(--primary-color);
+            color: white;
+            position: relative;
+        }
+        
+        .contact .section-title {
+            color: white;
+        }
+        
+        .contact .section-title::after {
+            background: linear-gradient(to left, var(--secondary-color), white);
+        }
+        
+        .contact-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+        
+        .contact-info {
+            padding-left: 30px;
+        }
+        
+        .contact-info h3 {
+            color: var(--secondary-color);
+            margin-bottom: 25px;
+            font-size: 1.8rem;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 25px;
+        }
+        
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--secondary-color);
+            font-size: 1.2rem;
+            margin-left: 15px;
+            flex-shrink: 0;
+        }
+        
+        .contact-details h4 {
+            color: white;
+            margin-bottom: 5px;
+        }
+        
+        .contact-details p {
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 0;
+        }
+        
+        .contact-form {
+            background-color: rgba(255, 255, 255, 0.05);
+            padding: 30px;
+            border-radius: var(--border-radius);
+            backdrop-filter: blur(10px);
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: var(--border-radius);
+            background-color: rgba(255, 255, 255, 0.05);
+            color: white;
+            font-size: 1rem;
+            font-family: 'Cairo', sans-serif;
+            transition: var(--transition);
+        }
+        
+        .form-control:focus {
+            outline: none;
+            border-color: var(--secondary-color);
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+        
+        .form-control::placeholder {
+            color: rgba(255, 255, 255, 0.5);
+        }
+        
+        textarea.form-control {
+            height: 150px;
+            resize: vertical;
+        }
+        
+        /* التذييل */
+        .footer {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 70px 0 30px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-column h3 {
+            color: var(--secondary-color);
+            margin-bottom: 25px;
+            font-size: 1.4rem;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 50px;
+            height: 2px;
+            background-color: var(--secondary-color);
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+        
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+        }
+        
+        .footer-links a i {
+            margin-left: 8px;
+            font-size: 0.9rem;
+            color: var(--secondary-color);
+        }
+        
+        .footer-links a:hover {
+            color: var(--secondary-color);
+            transform: translateX(-5px);
+        }
+        
+        .footer-about p {
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 20px;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: white;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        .social-links a:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-5px);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 0.9rem;
+        }
+        
+        .company-name {
+            color: var(--secondary-color);
+            font-weight: bold;
+        }
+        
+        /* رسوم متحركة */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes fadeInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        /* التجاوب مع الشاشات المختلفة */
+        @media (max-width: 992px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            h2 {
+                font-size: 2rem;
+            }
+            
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+            
+            .services-grid {
+                grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            }
+            
+            .why-us-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .why-us-content {
+                padding-left: 0;
+                order: 2;
+            }
+            
+            .why-us-image {
+                order: 1;
+                margin-bottom: 30px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .navbar {
+                padding: 15px 0;
+            }
+            
+            .nav-links {
+                position: fixed;
+                top: 70px;
+                right: -100%;
+                width: 80%;
+                height: calc(100vh - 70px);
+                background-color: white;
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 40px 30px;
+                transition: var(--transition);
+                box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+                z-index: 999;
+            }
+            
+            .nav-links.active {
+                right: 0;
+            }
+            
+            .nav-links li {
+                margin: 0 0 25px 0;
+                width: 100%;
+            }
+            
+            .nav-links a {
+                font-size: 1.1rem;
+                padding: 10px 0;
+                display: block;
+                width: 100%;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .hero-btns .btn {
+                display: block;
+                margin: 10px 0;
+                width: 100%;
+                max-width: 300px;
+            }
+            
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .why-us-features {
+                grid-template-columns: 1fr;
+            }
+            
+            .contact-info {
+                padding-left: 0;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 1.9rem;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .service-icon {
+                height: 150px;
+                font-size: 3rem;
+            }
+            
+            .section-padding {
+                padding: 60px 0;
+            }
+        }
+        
+        .logo-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.logo-icon img {
+    max-width: 150px; /* تعديل حسب الحجم المناسب */
+    height: auto;
+    display: block;
+}
+
+.logo-icon {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 10px;
+    overflow: hidden;
+    border: 2px solid white; /* إطار أبيض حول الصورة */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2); /* ظل خفيف */
+}
+
+.logo-icon .logo-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* يملأ الصورة كامل الدائرة مع القص إذا لزم */
+}
+        
+        
+    </style>
+</head>
+<body>
+    <!-- شريط التنقل -->
+    <nav class="navbar" id="navbar">
+        <div class="container nav-container">
+            <a href="#" class="logo">
+                <div class="logo-icon">
+                    <img src="/Officeengineering/img/logo.jpg" alt="Logo">
+                </div>
+                <div class="logo-text">
+                    <div class="logo-main">أفق المدينة</div>
+                    <div class="logo-sub">للاستشارات الهندسية والأمن والسلامة</div>
+                </div>
+            </a>
+            
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#home" class="active">الرئيسية</a></li>
+                <li><a href="#services">خدماتنا</a></li>
+                <li><a href="#why-us">لماذا نحن</a></li>
+                <li><a href="#contact">اتصل بنا</a></li>
+                <li><a href="tel:0534377441" class="btn btn-accent" style="padding: 10px 20px; margin-top: -5px;">
+                    <i class="fas fa-phone"></i> اتصل الآن
+                </a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- القسم الرئيسي -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <h1>استشارات <span>هندسية</span> متكاملة<br>لأعلى معايير <span>السلامة</span></h1>
+                <p>نقدم حلولاً هندسية استشارية متكاملة تجمع بين الدقة الهندسية ومعايير الأمن والسلامة العالمية. مع خبرة تزيد عن 15 عاماً في تصميم ودراسة وتنفيذ المشاريع الهندسية.</p>
+                <div class="hero-btns">
+                    <a href="#services" class="btn btn-accent">استكشاف خدماتنا</a>
+                    <a href="#contact" class="btn btn-outline">طلب استشارة مجانية</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- قسم الخدمات -->
+    <section class="services section-padding" id="services">
+        <div class="container">
+            <h2 class="section-title">خدماتنا <span class="title-accent">المتخصصة</span></h2>
+            <div class="services-grid">
+                <!-- بطاقة خدمة 1 -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-hands-helping"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3><i class="fas fa-cog"></i> استشارات هندسية</h3>
+                        <p>نقدم استشارات هندسية متخصصة تغطي جميع التخصصات الهندسية لضمان نجاح مشاريعكم وتجنب المخاطر المحتملة.</p>
+                        <ul class="service-features">
+                            <li>استشارات إنشائية ومعمارية</li>
+                            <li>دراسات الجدوى الفنية والاقتصادية</li>
+                            <li>مراجعة وتقييم التصاميم الهندسية</li>
+                            <li>حلول للمشكلات الهندسية المعقدة</li>
+                        </ul>
+                        <a href="consl.html" class="btn">المزيد من التفاصيل</a>
+                    </div>
+                </div>
+                
+                <!-- بطاقة خدمة 2 -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-ruler-combined"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3><i class="fas fa-arrows-alt"></i> رفع مساحي</h3>
+                        <p>خدمات رفع المساحات الدقيقة باستخدام أحدث التقنيات والأجهزة المتطورة لضمان الدقة العالية في القياسات.</p>
+                        <ul class="service-features">
+                            <li>رفع مساحي بالأجهزة الإلكترونية الدقيقة</li>
+                            <li>خرائط مساحية طبوغرافية</li>
+                            <li>تحديد مواقع المنشآت والمرافق</li>
+                            <li>تسوية الأراضي والمباني</li>
+                        </ul>
+                        <a href="survey.html" class="btn">المزيد من التفاصيل</a>
+                    </div>
+                </div>
+                
+                <!-- بطاقة خدمة 3 -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-project-diagram"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3><i class="fas fa-map-marked-alt"></i> تخطيط ودراسات</h3>
+                        <p>إعداد الدراسات الفنية والاقتصادية والتخطيط الشامل للمشاريع الهندسية بمنهجية علمية وعملية.</p>
+                        <ul class="service-features">
+                            <li>دراسات التخطيط العمراني</li>
+                            <li>تخطيط المشاريع التنموية</li>
+                            <li>دراسات الأثر البيئي</li>
+                            <li>تخطيط المرافق والبنية التحتية</li>
+                        </ul>
+                        <a href="planning.html" class="btn">المزيد من التفاصيل</a>
+                    </div>
+                </div>
+                
+                <!-- بطاقة خدمة 4 -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-file-contract"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3><i class="fas fa-file-signature"></i> رخص بناء</h3>
+                        <p>نقوم بمتابعة وإصدار رخص البناء من الجهات المختصة مع توفير المستندات والدراسات اللازمة.</p>
+                        <ul class="service-features">
+                            <li>إعداد ملفات رخص البناء</li>
+                            <li>متابعة إجراءات الرخصة مع البلديات</li>
+                            <li>تعديل الرخص وتجديدها</li>
+                            <li>استخراج رخص الترميم والتوسعة</li>
+                        </ul>
+                        <a href="licenses.html" class="btn">المزيد من التفاصيل</a>
+                    </div>
+                </div>
+                
+                <!-- بطاقة خدمة 5 -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-hard-hat"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3><i class="fas fa-eye"></i> إشراف هندسي</h3>
+                        <p>إشراف هندسي متكامل على تنفيذ المشاريع لضمان الجودة والمطابقة للمواصفات القياسية.</p>
+                        <ul class="service-features">
+                            <li>إشراف على التنفيذ الإنشائي</li>
+                            <li>مراقبة جودة المواد والتنفيذ</li>
+                            <li>متابعة الجدول الزمني للمشروع</li>
+                            <li>التأكد من مطابقة التنفيذ للتصاميم</li>
+                        </ul>
+                        <a href="supervision.html" class="btn">المزيد من التفاصيل</a>
+                    </div>
+                </div>
+                
+                <!-- بطاقة خدمة 6 -->
+                
+           <!--  </div>
+        </div> -->
+    </section>
+
+    <!-- قسم لماذا نحن -->
+    <section class="why-us section-padding" id="why-us">
+        <div class="container">
+            <div class="why-us-grid">
+                <div class="why-us-content">
+                    <h2 class="section-title" style="text-align: right; margin-bottom: 2rem;">لماذا تختار <span class="title-accent">أفق المدينة</span>؟</h2>
+                    <p>نتميز بخبرة تزيد عن 15 عاماً في تقديم الحلول الهندسية المتكاملة، حيث نجمع بين الدقة الهندسية والتقنيات الحديثة لضمان جودة المشاريع وتحقيق أعلى معايير السلامة.</p>
+                    
+                    <div class="why-us-features">
+                        <div class="feature-item">
+                            <h4><i class="fas fa-award"></i> خبرة واسعة</h4>
+                            <p>أكثر من 15 عاماً من الخبرة في الاستشارات الهندسية والسلامة</p>
+                        </div>
+                        
+                        <div class="feature-item">
+                            <h4><i class="fas fa-users"></i> فريق متخصص</h4>
+                            <p>فريق من المهندسين المعتمدين والمتخصصين في مختلف التخصصات</p>
+                        </div>
+                        
+                        <div class="feature-item">
+                            <h4><i class="fas fa-check-circle"></i> جودة معتمدة</h4>
+                            <p>نلتزم بأعلى معايير الجودة والسلامة المعتمدة محلياً ودولياً</p>
+                        </div>
+                        
+                        <div class="feature-item">
+                            <h4><i class="fas fa-headset"></i> دعم متكامل</h4>
+                            <p>نقدم دعماً شاملاً ومتابعة مستمرة طوال مراحل المشروع</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="why-us-image">
+                    <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="فريق العمل في أفق المدينة">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- قسم الاتصال -->
+    <section class="contact section-padding" id="contact">
+        <div class="container">
+            <h2 class="section-title">اتصل <span class="title-accent">بنا</span></h2>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3>معلومات التواصل</h3>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>عنوان الشركة</h4>
+                            <p>المملكة العربية السعودية - بيشة - حي الملك عبدالله - شارع أبو نواس</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>اتصل بنا</h4>
+                            <p>0534377441 - 0504903226</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>البريد الإلكتروني</h4>
+                            <p>asasi@bas@gmail.com</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>ساعات العمل</h4>
+                            <p>الأحد - الخميس: 8 صباحاً - 5 مساءً<br>الجمعة - السبت: إجازة</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-form">
+                    <h3 style="color: white; margin-bottom: 25px;">أرسل استفسارك</h3>
+                    <form id="consultationForm">
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="الاسم الكامل" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <input type="tel" class="form-control" placeholder="رقم الهاتف" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <input type="email" class="form-control" placeholder="البريد الإلكتروني" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <select class="form-control" required>
+                                <option value="" disabled selected>نوع الخدمة المطلوبة</option>
+                                <option value="consultation">استشارات هندسية</option>
+                                <option value="survey">رفع مساحي</option>
+                                <option value="planning">تخطيط ودراسات</option>
+                                <option value="licenses">رخص بناء</option>
+                                <option value="supervision">إشراف هندسي</option>
+                                
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <textarea class="form-control" placeholder="تفاصيل الاستفسار أو الطلب" required></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-accent" style="width: 100%;">إرسال الطلب</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- التذييل -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>عن الشركة</h3>
+                    <div class="footer-about">
+                        <p><span class="company-name">أفق المدينة</span>للاستشارات الهندسية والأمن والسلامة، شركة استشارية متخصص يقدم حلولاً هندسية متكاملة .</p>
+                    </div>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>روابط سريعة</h3>
+                    <ul class="footer-links">
+                        <li><a href="#home"><i class="fas fa-chevron-left"></i> الرئيسية</a></li>
+                        <li><a href="#services"><i class="fas fa-chevron-left"></i> خدماتنا</a></li>
+                        <li><a href="#why-us"><i class="fas fa-chevron-left"></i> لماذا نحن</a></li>
+                        <li><a href="#contact"><i class="fas fa-chevron-left"></i> اتصل بنا</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>خدماتنا</h3>
+                    <ul class="footer-links">
+                        <li><a href="consl.html"><i class="fas fa-chevron-left"></i> استشارات هندسية</a></li>
+                        <li><a href="survey.html"><i class="fas fa-chevron-left"></i> رفع مساحي</a></li>
+                        <li><a href="planning.html"><i class="fas fa-chevron-left"></i> تخطيط ودراسات</a></li>
+                        <li><a href="licenses.html"><i class="fas fa-chevron-left"></i> رخص بناء</a></li>
+                        <li><a href="supervision.html"><i class="fas fa-chevron-left"></i> إشراف هندسي</a></li>
+                       
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>معلومات الاتصال</h3>
+                    <ul class="footer-links">
+                        <li><a href="tel:0534377441"><i class="fas fa-phone"></i> 0534377441</a></li>
+                        <li><a href="tel:0504903226"><i class="fas fa-phone"></i> 0504903226</a></li>
+                        <li><a href="mailto:asasi@bas@gmail.com"><i class="fas fa-envelope"></i> asasi@bas@gmail.com</a></li>
+                        <li><a href="#"><i class="fas fa-map-marker-alt"></i> بيشة - حي الملك عبدالله</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>جميع الحقوق محفوظة &copy; <span class="company-name">أفق المدينة للاستشارات الهندسية والأمن والسلامة</span> 2023</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // JavaScript للتفاعلية والحركات
+        document.addEventListener('DOMContentLoaded', function() {
+            // تغيير لون شريط التنقل عند التمرير
+            const navbar = document.getElementById('navbar');
+            
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > 50) {
+                    navbar.classList.add('scrolled');
+                } else {
+                    navbar.classList.remove('scrolled');
+                }
+            });
+            
+            // القائمة المتنقلة
+            const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+            const navLinks = document.getElementById('navLinks');
+            
+            mobileMenuBtn.addEventListener('click', function() {
+                navLinks.classList.toggle('active');
+                mobileMenuBtn.innerHTML = navLinks.classList.contains('active') 
+                    ? '<i class="fas fa-times"></i>' 
+                    : '<i class="fas fa-bars"></i>';
+            });
+            
+            // إغلاق القائمة عند النقر على رابط
+            const links = document.querySelectorAll('.nav-links a');
+            links.forEach(link => {
+                link.addEventListener('click', function() {
+                    navLinks.classList.remove('active');
+                    mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+                    
+                    // تحديث الرابط النشط
+                    links.forEach(l => l.classList.remove('active'));
+                    this.classList.add('active');
+                });
+            });
+            
+            // تأثيرات التمرير السلس للروابط
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    const href = this.getAttribute('href');
+                    
+                    if (href === '#') return;
+                    
+                    if (href.startsWith('#')) {
+                        e.preventDefault();
+                        
+                        const targetId = href;
+                        const targetElement = document.querySelector(targetId);
+                        
+                        if (targetElement) {
+                            window.scrollTo({
+                                top: targetElement.offsetTop - 80,
+                                behavior: 'smooth'
+                            });
+                        }
+                    }
+                });
+            });
+            
+            // محاكاة إرسال النماذج
+            const consultationForm = document.getElementById('consultationForm');
+            
+            consultationForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                alert('شكراً لتواصلكم مع أفق المدينة! سيتصل بكم أحد مستشارينا في أقرب وقت.');
+                this.reset();
+            });
+            
+            // تأثيرات عند تحميل الصفحة
+            const serviceCards = document.querySelectorAll('.service-card');
+            const featureItems = document.querySelectorAll('.feature-item');
+            
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+            
+            const observer = new IntersectionObserver(function(entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, observerOptions);
+            
+            // تطبيق تأثيرات الظهور التدريجي على بطاقات الخدمات
+            serviceCards.forEach((card, index) => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(30px)';
+                card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                card.style.transitionDelay = `${index * 0.1}s`;
+                
+                observer.observe(card);
+            });
+            
+            // تأثيرات على عناصر الميزات
+            featureItems.forEach((item, index) => {
+                item.style.opacity = '0';
+                item.style.transform = 'translateY(20px)';
+                item.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                item.style.transitionDelay = `${index * 0.1}s`;
+                
+                observer.observe(item);
+            });
+            
+            // إضافة تأثير على صورة قسم "لماذا نحن"
+            const whyUsImage = document.querySelector('.why-us-image');
+            if (whyUsImage) {
+                whyUsImage.style.opacity = '0';
+                whyUsImage.style.transform = 'translateX(30px)';
+                whyUsImage.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+                
+                const imageObserver = new IntersectionObserver(function(entries) {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.style.opacity = '1';
+                            entry.target.style.transform = 'translateX(0)';
+                        }
+                    });
+                }, observerOptions);
+                
+                imageObserver.observe(whyUsImage);
+            }
+            
+            // رقم الهاتف النقر للاتصال
+            const phoneLinks = document.querySelectorAll('a[href^="tel:"]');
+            phoneLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                });
+            });
+        });
+    </script>
+</body>
+</html>
